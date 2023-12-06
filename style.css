@@ -1,0 +1,39 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000; /* Cor de fundo escura para melhor visualização da transição */
+  }
+ 
+.question {
+    padding: 30px;
+}
+
+.question input {
+    display: block;
+}
+
+input {
+    size: 530px;
+    margin: 10px 0;
+}
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    transform: scale(0);
+    transition: transform 2s ease-in-out;
+  }
+  
+.main {
+    width: 70%;
+    margin: 0 40px;
+}
