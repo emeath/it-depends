@@ -13,8 +13,6 @@ html {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
   gap: 20px
 }
 
@@ -58,8 +56,8 @@ html {
 }
 
 .meme-container img {
-  max-height: 70%;
-  max-width: 100%;
+  min-height: 70%;
+  background-size: contain;
 }
 
 /* footer ul {
