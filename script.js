@@ -11,10 +11,9 @@ const remover_imagem_anterior_html = () => {
 const colocar_imagem_no_html = (meme_url) => {
     const meme = document.getElementById('meme')
     meme.setAttribute('src', meme_url)
-
     const img = document.querySelector('img');
+    hiddenLoading()
     img.style.transform = 'scale(1)'; // Inicia a imagem com escala total
-
     document.querySelector('.img_meme').classList.add('mostrar');
 }
 
@@ -30,7 +29,7 @@ const criar_meme = (template_meme_id) => {
     };
 
     // Configuração da requisição
-    var requestOptions = {
+    let requestOptions = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json', // Especifique o tipo de conteúdo que está sendo enviado
@@ -62,13 +61,19 @@ const criar_meme = (template_meme_id) => {
 }
 
 const showLoading = () => {
+    const loading = document.getElementById('loading')
     const meme = document.getElementById('meme')
-    meme.setAttribute('src', 'loading.png')
+    loading.classList.remove('hidden')
+    meme.classList.add("initialhidden")
+}
+const hiddenLoading = () => {
+    const loading = document.getElementById('loading')
+    const meme = document.getElementById('meme')
+    loading.classList.add('hidden')
+    meme.classList.remove("initialhidden")
 }
 
 const gerar_template_para_meme = () => {
-
-
 
     remover_imagem_anterior_html()
 
@@ -81,7 +86,6 @@ const gerar_template_para_meme = () => {
             'Content-Type': 'application/json', // Especifique o tipo de conteúdo que está sendo enviado
         }
     };
-
 
     // Realiza a requisição GET usando a Fetch API
     fetch(apiUrl_template, requestOptions)
